@@ -19,6 +19,11 @@ def left_up():
     paddle.goto(paddle.xcor(), new_y)
 
 
+def left_down():
+    new_y = paddle.ycor() - 20
+    paddle.goto(paddle.xcor(), new_y)
+
+
 screen.listen()
 screen.onkey(left_up, "Up")
 screen.onkey(left_down, "Down")
