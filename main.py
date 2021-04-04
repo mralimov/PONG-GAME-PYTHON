@@ -12,3 +12,8 @@ paddle.color("white")
 paddle.shapesize(stretch_wid=5, stretch_len=1)
 paddle.penup()
 paddle.goto(-430, 0)
+
+
+screen.listen()
+screen.onkey(left_up, "Up")
+screen.onkey(left_down, "Down")
