@@ -27,3 +27,9 @@ def left_down():
 screen.listen()
 screen.onkey(left_up, "Up")
 screen.onkey(left_down, "Down")
+
+
+game_is_on = True
+while game_is_on:
+    screen.update()
+screen.exitonclick()
