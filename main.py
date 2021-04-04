@@ -6,3 +6,9 @@ screen.title("PONG-GAME")
 screen.bgcolor("black")
 
 
+paddle = Turtle()
+paddle.shape("square")
+paddle.color("white")
+paddle.shapesize(stretch_wid=5, stretch_len=1)
+paddle.penup()
+paddle.goto(-430, 0)
