@@ -12,9 +12,15 @@ R_POSITIONS = (420, 0)
 L_POSITIONS = (-430, 0)
 
 
+r_paddle = Paddle(R_POSITIONS)
+l_paddle = Paddle(L_POSITIONS)
+
 screen.listen()
-screen.onkey(left_up, "Up")
-screen.onkey(left_down, "Down")
+screen.onkey(r_paddle.up, "Up")
+screen.onkey(r_paddle.down, "Down")
+
+screen.onkey(l_paddle.up, 'w')
+screen.onkey(l_paddle.down, "s")
 
 
 game_is_on = True
