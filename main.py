@@ -1,6 +1,6 @@
 from turtle import Turtle, Screen
 from paddle import Paddle
-
+from ball import Ball
 
 screen = Screen()
 screen.setup(width=900, height=600)
@@ -15,6 +15,7 @@ L_POSITIONS = (-430, 0)
 r_paddle = Paddle(R_POSITIONS)
 l_paddle = Paddle(L_POSITIONS)
 
+ball = Ball()
 screen.listen()
 screen.onkey(r_paddle.up, "Up")
 screen.onkey(r_paddle.down, "Down")
