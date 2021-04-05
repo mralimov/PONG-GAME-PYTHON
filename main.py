@@ -8,6 +8,9 @@ screen.title("PONG-GAME")
 screen.bgcolor("black")
 screen.tracer(0)
 
+R_POSITIONS = (420, 0)
+L_POSITIONS = (-430, 0)
+
 
 screen.listen()
 screen.onkey(left_up, "Up")
