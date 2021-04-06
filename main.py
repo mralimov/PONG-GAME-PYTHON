@@ -1,4 +1,8 @@
 from turtle import Turtle, Screen
+from paddle import Paddle
+from ball import Ball
+import time
+
 
 screen = Screen()
 screen.setup(width=900, height=600)
@@ -6,30 +10,29 @@ screen.title("PONG-GAME")
 screen.bgcolor("black")
 screen.tracer(0)
 
-paddle = Turtle()
-paddle.shape("square")
-paddle.color("white")
-paddle.shapesize(stretch_wid=5, stretch_len=1)
-paddle.penup()
-paddle.goto(-430, 0)
+R_POSITIONS = (420, 0)
+L_POSITIONS = (-430, 0)
 
 
-def left_up():
-    new_y = paddle.ycor() + 20
-    paddle.goto(paddle.xcor(), new_y)
+r_paddle = Paddle(R_POSITIONS)
+l_paddle = Paddle(L_POSITIONS)
 
-
-def left_down():
-    new_y = paddle.ycor() - 20
-    paddle.goto(paddle.xcor(), new_y)
-
-
+ball = Ball()
 screen.listen()
-screen.onkey(left_up, "Up")
-screen.onkey(left_down, "Down")
+screen.onkey(r_paddle.up, "Up")
+screen.onkey(r_paddle.down, "Down")
+
+screen.onkey(l_paddle.up, 'w')
+screen.onkey(l_paddle.down, "s")
 
 
 game_is_on = True
 while game_is_on:
+    time.sleep(0.1)
     screen.update()
+    ball.move()
+
+    # Detecting collision with wall bouns
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.bounce()
 screen.exitonclick()
